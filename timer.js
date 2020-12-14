@@ -3,6 +3,7 @@ class Timer {
         this.durationInput = durationInput
         this.startButton = startButton
         this.pauseButton = pauseButton
+        this.timeInit=durationInput.value
         if (callbacks) {
             console.log(true)
             this.onStart = callbacks.onStart
@@ -18,7 +19,7 @@ class Timer {
             this.onStart()
         }
         this.tick()
-        this.interval = setInterval(this.tick, 1000)
+        this.interval = setInterval(this.tick, 50)
     }
     pause = () => {
         clearInterval(this.interval)
@@ -28,14 +29,13 @@ class Timer {
 
     }
     tick = () => {
-        console.log(this.timeRemaining)
         if (this.timeRemaining <= 0) {
             if (this.onComplete) {
                 this.onComplete()
             }
             this.pause()
         } else {
-            this.timeRemaining = this.timeRemaining - 1
+            this.timeRemaining = this.timeRemaining - 0.05
             if (this.onTick) {
                 this.onTick()
             }
@@ -45,6 +45,6 @@ class Timer {
         return parseFloat(this.durationInput.value)
     }
     set timeRemaining(time) {
-        this.durationInput.value = time
+        this.durationInput.value = time.toFixed(2)
     }
 }
