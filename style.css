@@ -1,6 +1,9 @@
 .timer{
     position: relative;
     display: inline-block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,40%);
 }
 
 .controls{
@@ -14,10 +17,16 @@
     align-items: center;
 }
 
+.controls button{
+    background: none;
+    border: none;
+    font-size: 25px;
+}
+
 #duration{
     border:none;
-    width: 80%;
-    font-size: 40px;
+    width: 100%;
+    font-size: 60px;
     font-weight: bold;
     text-align: center;
     padding-bottom: 20px;
