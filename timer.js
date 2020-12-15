@@ -10,23 +10,23 @@ class Timer {
             this.onTick = callbacks.onTick
             this.onComplete = callbacks.onComplete
         }
-        this.durationInput.addEventListener("click", this.onChangeTimer)
+        this.durationInput.addEventListener("change", this.onChangeTimer)
         this.startButton.addEventListener("click", this.start)
         this.pauseButton.addEventListener("click", this.pause)
     }
     start = () => {
         if (this.onStart) {
-            this.onStart()
+            this.onStart(this.timeRemaining)
         }
         this.tick()
-        this.interval = setInterval(this.tick, 50)
+        this.interval = setInterval(this.tick, 20)
     }
     pause = () => {
         clearInterval(this.interval)
     }
 
-    onChangeTimer = () => {
-
+    onChangeTimer = (e) => {
+        this.timeInit=parseFloat(e.target.innerHTML).toFixed
     }
     tick = () => {
         if (this.timeRemaining <= 0) {
@@ -35,7 +35,7 @@ class Timer {
             }
             this.pause()
         } else {
-            this.timeRemaining = this.timeRemaining - 0.05
+            this.timeRemaining = this.timeRemaining - 0.02
             if (this.onTick) {
                 this.onTick()
             }

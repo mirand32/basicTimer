@@ -1,0 +1,24 @@
+.timer{
+    position: relative;
+    display: inline-block;
+}
+
+.controls{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#duration{
+    border:none;
+    width: 80%;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 20px;
+}
